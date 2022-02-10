@@ -19,6 +19,9 @@ const Navbar = () => {
                 <li>
                     <Link to='/contact' className='nav-link'>contact</Link>
                 </li>
+                <li>
+                    <Link to='/post' className='nav-link'>write</Link>
+                </li>
             </ul>
             <div className='search'>
                 <form className='search-form' onSubmit={e => e.preventDefault()}>
