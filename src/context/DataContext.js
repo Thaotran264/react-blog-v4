@@ -1,7 +1,4 @@
 import { createContext, useEffect, useState } from "react";
-import { format } from "date-fns";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import api from "../api/posts";
 
 const DataContext = createContext({});
 

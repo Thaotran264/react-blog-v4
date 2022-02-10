@@ -6,8 +6,7 @@ const Pagination = () => {
         maxPageNumber,
         minPageNumber, handleNextClick,
         handlePreClick } = useContext(DataContext)
-    console.log(pages[0]);
-    console.log(currentPage);
+
     return (
         <nav className='pagination'>
             <ul className='pagination-links'>

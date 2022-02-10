@@ -28,6 +28,7 @@ const NewPost = () => {
         const allPost = [...posts, newPost];
 
         setPosts(allPost);
+
         setPostTilte("");
         setPostBody("");
         setPostPhoto("");

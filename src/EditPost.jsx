@@ -34,7 +34,7 @@ const EditPost = () => {
         try {
             // const res = await api.put(`/posts/${id}`, updatePost);
 
-            setPosts(posts.map((post) => (post.id === id ? { updatePost } : post)));
+            setPosts(posts.map((post) => (post.id === id ? { ...updatePost } : post)));
             setEditTitle("");
             setEditBody("");
             setEditPhoto("");

@@ -7,7 +7,8 @@ const PostPage = () => {
     const history = useHistory()
     const { posts, setPosts } = useContext(DataContext)
     const { id } = useParams()
-    const post = posts.find(post => (post.id).toString() === id)
+    const post = posts.find(post => post.id === id)
+
     const handleDelete = (id) => {
         const postLists = posts.filter((post) => post.id !== id);
 
