@@ -19,7 +19,45 @@
     object-fit: cover;
   }
 
+  &-info {
+    margin-bottom: 20px;
+  }
+
   &-title {
     margin-bottom: 10px;
+  }
+
+  .btn-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .delete-btn,
+    .edit-btn {
+      display: inline-block;
+      height: 40px;
+      width: 120px;
+      border: none;
+      outline: none;
+      font-size: 15px;
+      background-color: red;
+      color: #fff;
+      cursor: pointer;
+      text-transform: capitalize;
+      opacity: 0.8;
+      transition: 0.25s;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    .edit-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 10px;
+      background-color: royalblue;
+      text-decoration: none;
+    }
   }
 }

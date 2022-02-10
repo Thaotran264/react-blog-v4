@@ -1,6 +1,63 @@
 .header {
-  width: 100%;
-  padding: 0 40px;
-  text-align: center;
   margin: 40px 0;
+  width: 100%;
+  padding: 0 20px;
+
+  &-title {
+    font-weight: 700;
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: $text-primary-color;
+  }
+
+  &-container {
+    width: 100%;
+    text-align: center;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: grid;
+    gap: 20px;
+
+    .post {
+      height: 100%;
+      padding: 20px;
+      box-shadow: 0 5px 10px rgba($color: #000000, $alpha: 0.2);
+
+      &:hover &-thumb {
+        transform: scale(1.05);
+      }
+
+      &-links {
+        width: 100%;
+        text-decoration: none;
+        color: #000;
+        display: inline-block;
+      }
+
+      &-image {
+        width: 100%;
+        height: 250px;
+        margin-bottom: 20px;
+      }
+
+      &-thumb {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.25s;
+      }
+
+      &-info {
+        width: 100%;
+      }
+      &-title {
+        margin-bottom: 10px;
+        color: $text-primary-color;
+        text-align: left;
+        font-size: 18px;
+      }
+      &-desc {
+        color: $text-second-color;
+      }
+    }
+  }
 }

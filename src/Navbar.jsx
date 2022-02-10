@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import DataContext from './context/DataContext';
 
-const Navbar = ({ search, setSearch }) => {
+const Navbar = () => {
+    const { search, setSearch } = useContext(DataContext)
     return (
         <nav className='nav'>
             <div className='nav-logo'>
@@ -12,10 +14,10 @@ const Navbar = ({ search, setSearch }) => {
                     <Link to='/' className='nav-link'>home</Link>
                 </li>
                 <li>
-                    <Link to='/' className='nav-link'>about</Link>
+                    <Link to='/about' className='nav-link'>about</Link>
                 </li>
                 <li>
-                    <Link to='/' className='nav-link'>contact</Link>
+                    <Link to='/contact' className='nav-link'>contact</Link>
                 </li>
             </ul>
             <div className='search'>

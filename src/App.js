@@ -1,65 +1,45 @@
-import Footer from "./Footer";
-import Header from "./Header";
-import Home from "./Home";
-import Navbar from "./Navbar";
 import { Route, Switch } from "react-router-dom";
-import { useEffect, useState } from "react";
-import PostPage from "./PostPage";
+import About from "./About";
+import Contact from "./Contact";
+import { DataProvider } from "./context/DataContext";
+import EditPost from "./EditPost";
+import Home from "./Home";
 import MissingPage from "./MissingPage";
-import { useHistory } from "react-router";
+import Navbar from "./Navbar";
 import NewPost from "./NewPost";
+import PostPage from "./PostPage";
 
 function App() {
-  let history = useHistory();
-  const [posts, setPosts] = useState([]);
-  const [search, setSearch] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
-
-  useEffect(() => {
-    try {
-      async function fetchData() {
-        fetch("http://localhost:3500/posts")
-          .then((res) => res.json())
-          .then((data) => setPosts(data));
-      }
-      fetchData();
-    } catch (error) {
-      console.log("error", error);
-    }
-  }, []);
-
-  useEffect(() => {
-    const filterResults = posts.filter((post) =>
-      post.title.toLowerCase().includes(search.toLocaleLowerCase())
-    );
-
-    setSearchResults(filterResults.reverse());
-  }, [posts, search]);
-
-  const handleDelete = (id) => {
-    const postLists = posts.filter((post) => post.id !== id);
-    setPosts(postLists);
-    history.push("/");
-  };
-
   return (
     <div className='App'>
-      <Navbar search={search} setSearch={setSearch} />
-      <Switch>
-        <Route path='/' exact>
-          <Home posts={searchResults} />
-        </Route>
-        <Route path='/post/:id'>
-          <PostPage posts={posts} handleDelete={handleDelete} />
-        </Route>
-        <Route path='/post' exact>
-          <NewPost posts={posts} setPosts={setPosts} />
-        </Route>
+      <DataProvider>
+        <Navbar />
+        <Switch>
+          <Route path='/' exact>
+            <Home />
+          </Route>
+          <Route path='/post/:id'>
+            <PostPage />
+          </Route>
 
-        <Route path='*'>
-          <MissingPage />
-        </Route>
-      </Switch>
+          <Route path='/edit/:id'>
+            <EditPost />
+          </Route>
+          <Route path='/post' exact>
+            <NewPost />
+          </Route>
+          <Route path='/about'>
+            <About />
+          </Route>
+          <Route path='/contact'>
+            <Contact />
+          </Route>
+
+          <Route path='*'>
+            <MissingPage />
+          </Route>
+        </Switch>
+      </DataProvider>
     </div>
   );
 }

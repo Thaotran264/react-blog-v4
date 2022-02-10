@@ -3,4 +3,62 @@
   padding: 0 40px;
   margin-top: 40px;
   text-align: center;
+  background-color: #f5f5f5;
+
+  &-container {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    h2 {
+      text-transform: capitalize;
+      color: #383838;
+      font-weight: 300;
+      text-align: left;
+      color: $text-primary-color;
+      margin-bottom: 20px;
+    }
+  }
+  &-posts {
+    list-style: none;
+    text-align: left;
+
+    li {
+      margin: 10px 0;
+    }
+  }
+  &-post {
+    text-decoration: none;
+    color: #3a3a3a;
+
+    transition: 0.25s;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  &-socials {
+    width: 100%;
+    justify-content: flex-start;
+    display: flex;
+    list-style-type: none;
+
+    li {
+      margin-right: 10px;
+    }
+  }
+  &-link {
+    font-size: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #383838;
+    padding: 10px;
+    opacity: 0.8;
+    transition: 0.25s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
